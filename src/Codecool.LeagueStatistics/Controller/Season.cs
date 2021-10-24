@@ -12,9 +12,12 @@ namespace Codecool.LeagueStatistics.Controllers
     {
         public List<Team> League { get; set; }
 
+        private Random _random;
+
         public Season()
         {
             League = new List<Team>();
+            _random = new Random();
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace Codecool.LeagueStatistics.Controllers
             // Call Display methods here
         }
         /// <summary>
-        ///     Playing one round. Everyone with everyone one time. 
+        ///     Playing one round. Everyone with everyone one time.
         /// </summary>
         public void PlayAllGames()
         {
