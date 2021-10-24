@@ -38,7 +38,16 @@ namespace Codecool.LeagueStatistics.Controllers
         /// </summary>
         public void PlayAllGames()
         {
-            throw new NotImplementedException();
+            foreach (var team in League)
+            {
+                foreach (var opponent in League)
+                {
+                    if(team != opponent)
+                    {
+                        PlayMatch(team, opponent);
+                    }
+                }
+            }
         }
         /// <summary>
         ///     Plays single game between two teams and displays result after.
@@ -70,6 +79,7 @@ namespace Codecool.LeagueStatistics.Controllers
         {
             int randomGoalChanceByStats = Utils.Random.Next(MaxSkill);
             int goalsScoredInCurrentGame = 0;
+
             foreach (var player in team.Players)
             {
                 if(player.SkillRate > randomGoalChanceByStats)
