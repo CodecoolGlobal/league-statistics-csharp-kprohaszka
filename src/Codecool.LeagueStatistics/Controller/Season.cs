@@ -11,6 +11,7 @@ namespace Codecool.LeagueStatistics.Controllers
     public class Season
     {
         public List<Team> League { get; set; }
+        private readonly int MaxSkill = 100;
 
         public Season()
         {
@@ -67,7 +68,17 @@ namespace Codecool.LeagueStatistics.Controllers
         /// <returns>All goals scored by the team in current game</returns>
         public int ScoredGoals(Team team)
         {
-            throw new NotImplementedException();
+            int randomGoalChanceByStats = Utils.Random.Next(MaxSkill);
+            int goalsScoredInCurrentGame = 0;
+            foreach (var player in team.Players)
+            {
+                if(player.SkillRate > randomGoalChanceByStats)
+                {
+                    player.Goals++;
+                    goalsScoredInCurrentGame++;
+                }
+            }
+            return goalsScoredInCurrentGame;
         }
     }
 }
