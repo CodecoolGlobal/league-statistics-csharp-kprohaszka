@@ -44,7 +44,7 @@ namespace Codecool.LeagueStatistics.Controllers
         /// </summary>
         public void PlayMatch(Team team1, Team team2)
         {
-            int teamWon = Utils.Random.Next(2);
+            int whichTeamWon = Utils.Random.Next(2);
 
         }
 
