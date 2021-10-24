@@ -12,12 +12,9 @@ namespace Codecool.LeagueStatistics.Controllers
     {
         public List<Team> League { get; set; }
 
-        private Random _random;
-
         public Season()
         {
             League = new List<Team>();
-            _random = new Random();
         }
 
         /// <summary>
@@ -47,7 +44,8 @@ namespace Codecool.LeagueStatistics.Controllers
         /// </summary>
         public void PlayMatch(Team team1, Team team2)
         {
-            throw new NotImplementedException();
+            int teamWon = Utils.Random.Next(2);
+
         }
 
         /// <summary>
