@@ -45,7 +45,18 @@ namespace Codecool.LeagueStatistics.Controllers
         public void PlayMatch(Team team1, Team team2)
         {
             int whichTeamWon = Utils.Random.Next(3);
-
+            if(whichTeamWon == 1)
+            {
+            team1.Wins++;
+            team2.Losts++;
+            } else if (whichTeamWon == 2) {
+            team2.Wins++;
+            team1.Losts++;
+            } else if (whichTeamWon == 3)
+            {
+            team1.Draws++;
+            team2.Draws++;
+            }
         }
 
         /// <summary>
