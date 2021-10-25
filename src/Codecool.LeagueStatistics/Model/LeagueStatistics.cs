@@ -115,8 +115,16 @@ namespace Codecool.LeagueStatistics.Model
         /// <param name="teams"></param>
         /// <param name="goals">The minimal number of golas scored.</param>
         /// <returns>Collection of Players with given or higher number of goals scored.</returns>
+        ///
         public static IEnumerable<Player> GetPlayersWithAtLeastXGoals(this IEnumerable<Team> teams, int goals)
-            => throw new NotImplementedException();
+            => from team in teams
+               from player in team.Players
+               where player.Goals >= goals
+               select player;
+
+        //public static IEnumerable<Player> GetPlayersWithAtLeastXGoals(this IEnumerable<Team> teams, int goals)
+        //    => teams.SelectMany(team => team.Players.Where(player => player.Goals >= goals));
+
 
         /// <summary>
         ///     Gets the player with the highest skill rate for given Division.
