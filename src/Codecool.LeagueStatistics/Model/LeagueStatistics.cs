@@ -18,6 +18,7 @@ namespace Codecool.LeagueStatistics.Model
             => from team in teams
                orderby team.CurrentPoints descending, (team.Players.Sum(player => player.Goals)) descending
                select team;
+
         //teams.FindAll(x => (x % 2) == 0);
         //dogs.Select(x => x.name)
         //dogs.Select(x => new {Age = x.Age, FirstLetter = x.Name[0]});
@@ -27,8 +28,15 @@ namespace Codecool.LeagueStatistics.Model
         /// </summary>
         /// <param name="teams"></param>
         /// <returns></returns>
+
         public static IEnumerable<Player> GetAllPlayers(this IEnumerable<Team> teams)
-            => throw new NotImplementedException();
+            => from team in teams
+               from player in team.Players
+               select player;
+
+        //public static IEnumerable<Player> GetAllPlayers(this IEnumerable<Team> teams)
+        //    =>  teams.SelectMany(team => team.Players).ToList();
+
 
         /// <summary>
         ///     Gets team with the longest name
