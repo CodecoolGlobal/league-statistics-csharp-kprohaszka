@@ -43,8 +43,14 @@ namespace Codecool.LeagueStatistics.Model
         /// </summary>
         /// <param name="teams"></param>
         /// <returns></returns>
+        ///
         public static Team GetTeamWithTheLongestName(this IEnumerable<Team> teams)
-            => throw new NotImplementedException();
+            => (from team in teams
+                orderby team.Name.Length descending
+                select team).First();
+
+        //public static Team GetTeamWithTheLongestName(this IEnumerable<Team> teams)
+        //    => teams.OrderByDescending(team => team.Name).First();
 
         /// <summary>
         ///     Gets top teams with least number of lost matches.
