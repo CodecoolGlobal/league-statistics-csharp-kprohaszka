@@ -56,6 +56,10 @@ namespace Codecool.LeagueStatistics.Controllers
         public void PlayMatch(Team team1, Team team2)
         {
             int whichTeamWon = Utils.Random.Next(1, 4);
+
+            ScoredGoals(team1);
+            ScoredGoals(team2);
+
             if(whichTeamWon == 1)
             {
             team1.Wins++;
@@ -82,7 +86,7 @@ namespace Codecool.LeagueStatistics.Controllers
 
             foreach (var player in team.Players)
             {
-                if(player.SkillRate > Utils.Random.Next(player.SkillRate))
+                if(player.SkillRate > Utils.Random.Next(player.SkillRate + 1))
                 {
                     player.Goals++;
                     goalsScoredInCurrentGame++;
