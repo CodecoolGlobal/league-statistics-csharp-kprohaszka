@@ -89,10 +89,13 @@ namespace Codecool.LeagueStatistics.Model
         /// </summary>
         /// <param name="teams"></param>
         /// <returns></returns>
+        //public static Division GetStrongestDivision(this IEnumerable<Team> teams)
+        //    => (from team in teams
+        //       orderby team.CurrentPoints descending, team.Wins descending
+        //       select team.Division).First();
         public static Division GetStrongestDivision(this IEnumerable<Team> teams)
-            => (from team in teams
-               orderby team.CurrentPoints descending, team.Wins descending
-               select team.Division).First();
+            => teams.OrderByDescending(team => team.CurrentPoints).ThenByDescending(team => team.Wins).Select(team => team.Division).First();
+
 
 
 
@@ -109,9 +112,6 @@ namespace Codecool.LeagueStatistics.Model
 
         //public static IEnumerable<Team> GetTeamsWithPlayersWithoutGoals(this IEnumerable<Team> teams)
         //    => teams.Where(team => team.Players.Any(player => player.Goals == 0));
-
-
-        //teams.Select(team => team).Where(team => (team.Players.Select(p))
 
         /// <summary>
         /// Gets players with given or higher number of goals scored.
