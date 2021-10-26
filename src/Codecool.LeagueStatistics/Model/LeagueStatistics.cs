@@ -80,8 +80,8 @@ namespace Codecool.LeagueStatistics.Model
                        orderby player.Goals descending
                        select player).First();
 
-     //   public static IEnumerable<Player> GetTopPlayersFromEachTeam(this IEnumerable<Team> teams)
-     //=> teams.Select(team => team.Players.OrderByDescending(player => player.Goals).First());
+        //   public static IEnumerable<Player> GetTopPlayersFromEachTeam(this IEnumerable<Team> teams)
+        //=> teams.Select(team => team.Players.OrderByDescending(player => player.Goals).First());
 
         /// <summary>
         ///     Returns the division with greatest amount of points.
@@ -90,7 +90,11 @@ namespace Codecool.LeagueStatistics.Model
         /// <param name="teams"></param>
         /// <returns></returns>
         public static Division GetStrongestDivision(this IEnumerable<Team> teams)
-            => throw new NotImplementedException();
+            => (from team in teams
+               orderby team.CurrentPoints descending, team.Wins descending
+               select team.Division).First();
+
+
 
         /// <summary>
         ///     Gests all teams, where there are players with no scored goals.
