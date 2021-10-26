@@ -450,3 +450,5 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio,jetbrains+all,visualstudiocode
+/docs/Codecool.LinqLeague/Codecool.LinqLeague.xml
+/src/Codecool.LeagueStatistics/Program - Copy.cs
