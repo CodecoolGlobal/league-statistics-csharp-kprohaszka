@@ -55,19 +55,17 @@ namespace Codecool.LeagueStatistics.Controllers
         /// </summary>
         public void PlayMatch(Team team1, Team team2)
         {
-            int whichTeamWon = Utils.Random.Next(1, 4);
+            int teamOneGoals = ScoredGoals(team1);
+            int teamTwoGoals = ScoredGoals(team2);
 
-            ScoredGoals(team1);
-            ScoredGoals(team2);
-
-            if(whichTeamWon == 1)
+            if(teamOneGoals > teamTwoGoals)
             {
             team1.Wins++;
             team2.Losts++;
-            } else if (whichTeamWon == 2) {
+            } else if (teamTwoGoals > teamOneGoals) {
             team2.Wins++;
             team1.Losts++;
-            } else if (whichTeamWon == 3)
+            } else if (teamOneGoals == teamTwoGoals)
             {
             team1.Draws++;
             team2.Draws++;
