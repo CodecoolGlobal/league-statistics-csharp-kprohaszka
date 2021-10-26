@@ -145,6 +145,7 @@ namespace Codecool.LeagueStatistics.Model
                 orderby player.SkillRate descending
                 select player).First();
 
-
+        //public static Player GetMostTalentedPlayerInDivision(this IEnumerable<Team> teams, Division division)
+        //    => teams.Where(team => team.Division == division).SelectMany(team => team.Players).OrderByDescending(player => player.SkillRate).First();
     }
 }
