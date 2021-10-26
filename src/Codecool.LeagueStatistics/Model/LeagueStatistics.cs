@@ -19,9 +19,9 @@ namespace Codecool.LeagueStatistics.Model
                orderby team.CurrentPoints descending, (team.Players.Sum(player => player.Goals)) descending
                select team;
 
-        //teams.FindAll(x => (x % 2) == 0);
-        //dogs.Select(x => x.name)
-        //dogs.Select(x => new {Age = x.Age, FirstLetter = x.Name[0]});
+        //public static IEnumerable<Team> GetAllTeamsSorted(this IEnumerable<Team> teams)
+        //    => teams.OrderByDescending(team => team.CurrentPoints).ThenByDescending(team => (team.Players.Sum(player => player.Goals)));
+
 
         /// <summary>
         ///     Gets all players from each team in one collection.
